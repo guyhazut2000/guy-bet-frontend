@@ -1,10 +1,35 @@
 import React, { useState } from "react";
+import UserService from "../services/User";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess, loginStart, loginFailure } from "../redux/userRedux";
 
 const LoginForm = () => {
   const [user, setUser] = useState();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      dispatch(loginStart());
+      const res = await UserService.login(user.email, user.password);
+      // check response status
+      if (res.status === 200) {
+        // check if user exists in db
+        if (res.data.user !== null) {
+          // set currentUser in redux store
+          const currentUser = res.data.user;
+          dispatch(loginSuccess(currentUser));
+          navigate("/home");
+        } else {
+          dispatch(loginFailure());
+        }
+      }
+    } catch (error) {
+      dispatch(loginFailure());
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {

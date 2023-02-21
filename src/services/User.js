@@ -1,19 +1,28 @@
-import http from "../http-common";
+import http from "../utils/http-common";
 
 class UserService {
   // get user info by email.
   getUserByEmail(email) {
     return http.get(`/users/${email}`);
   }
-  loginUser(data) {
-    return http.post("/users/login", data);
+  getUserById(id) {
+    return http.get(`/users/${id}`);
   }
-  createNewUser(data) {
-    return http.put("/users/add-user", data);
+  getAll() {
+    return http.get("/users/all");
   }
-  getUserPasswordByEmail(email) {
-    return http.get(`/users/forgot-password/${email}`);
+  login(email, password) {
+    return http.post("/users/login", { email, password });
+  }
+  register(email, password, firstName, lastName) {
+    return http.put("/users/register", {
+      email,
+      password,
+      firstName,
+      lastName,
+    });
   }
 }
 
-export default new UserService();
+const exportedObject = new UserService();
+export default exportedObject;

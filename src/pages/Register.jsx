@@ -1,14 +1,10 @@
 import React from "react";
+import RegisterForm from "../components/RegisterForm";
 
 const Register = () => {
   return (
     <div>
-      <label htmlFor="">email</label>
-      <input type="text" />
-      <label htmlFor="">password</label>
-      <input type="text" />
-      <label htmlFor="">password confirmation</label>
-      <input type="text" />
+      <RegisterForm />
     </div>
   );
 };
