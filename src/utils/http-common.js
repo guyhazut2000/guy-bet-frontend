@@ -1,10 +1,9 @@
 import axios from "axios";
 
 export default axios.create({
-  // baseURL: "http://localhost:5000/api",
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://project-clientserver.herokuapp.com/api"
+      ? "https://guy-bet-api.onrender.com/api/v1"
       : "http://localhost:5000/api/v1",
   headers: {
     "Content-type": "application/json",
