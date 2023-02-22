@@ -18,10 +18,9 @@ const BetForm = ({ userId, matchId, bet }) => {
         awayTeamName: bet.awayTeamName,
       });
       if (res.data) {
-        alert("bet is added");
         window.location.reload();
       } else {
-        alert("bet failed");
+        console.log("bet failed");
       }
     }
   };
