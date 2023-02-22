@@ -19,6 +19,7 @@ const BetForm = ({ userId, matchId, bet }) => {
       });
       if (res.data) {
         alert("bet is added");
+        window.location.reload();
       } else {
         alert("bet failed");
       }

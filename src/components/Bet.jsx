@@ -10,9 +10,9 @@ const Bet = ({
   return (
     <div>
       <p>
-        {homeTeamName} - {homeTeamScore} {awayTeamName} - {awayTeamScore}
+        {homeTeamName} - {awayTeamName} {homeTeamScore} - {awayTeamScore}
+        {score !== null ? " Score : " + score : ""}
       </p>
-      {score !== null ? <p>Score - {score}</p> : <></>}
     </div>
   );
 };
