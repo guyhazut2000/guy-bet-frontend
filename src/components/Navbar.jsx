@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutStart, logoutSuccess } from "../redux/userRedux";
 
 const Navbar = () => {
@@ -22,13 +22,13 @@ const Navbar = () => {
       <div>
         <ul>
           <li>
-            <a href="/home">Home</a>
+            <Link to={"/home"}>Home</Link>
           </li>
           <li>
-            <a href="/my-bets">My Bets</a>
+            <Link to={"/my-bets"}>My Bets</Link>
           </li>
           <li>
-            <a href="/score-table">Score Table</a>
+            <Link to={"/score-table"}>Score Table</Link>
           </li>
         </ul>
         <button onClick={handleClick}>Logout</button>

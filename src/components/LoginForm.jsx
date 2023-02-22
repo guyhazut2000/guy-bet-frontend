@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserService from "../services/User";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess, loginStart, loginFailure } from "../redux/userRedux";
 
@@ -48,9 +48,9 @@ const LoginForm = () => {
       <p>
         Don't have an account ?
         <span>
-          <a href="/register">
-            <b>Register</b>
-          </a>
+          <Link to={"/register"}>
+            <b>Login</b>
+          </Link>
         </span>
       </p>
     </div>

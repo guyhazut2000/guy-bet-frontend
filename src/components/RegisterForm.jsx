@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserService from "../services/User";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [user, setUser] = useState();
@@ -48,9 +48,9 @@ const RegisterForm = () => {
       <p>
         Already have an account ?
         <span>
-          <a href="/login">
+          <Link to={"/login"}>
             <b>Login</b>
-          </a>
+          </Link>
         </span>
       </p>
     </div>
