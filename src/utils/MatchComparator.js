@@ -1,4 +1,4 @@
-const scoreComparator = (a, b) => {
+const ScoreComparator = (a, b) => {
   if (a.score < b.score) {
     return 1;
   } else if (a.score > b.score) {
@@ -13,4 +13,16 @@ const DateComparator = (date) => {
   return new Date(date) < currentTime ? false : true;
 };
 
-export { scoreComparator, DateComparator };
+const GetTodayBets = (date) => {
+  const currentDate = new Date();
+  const matchDate = new Date(date);
+  return currentDate.toLocaleDateString() === matchDate.toLocaleDateString();
+};
+
+const GetAllHistoryBets = (date) => {
+  const currentDate = new Date();
+  const matchDate = new Date(date);
+  return currentDate.toLocaleDateString() === matchDate.toLocaleDateString();
+};
+
+export { ScoreComparator, DateComparator, GetTodayBets, GetAllHistoryBets };

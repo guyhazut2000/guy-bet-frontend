@@ -38,13 +38,29 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="loginContainer">
-      <h1>Login Form</h1>
-      <label htmlFor="email">Email</label>
-      <input type="text" id="email" onChange={handleChange} />
-      <label htmlFor="password">Password</label>
-      <input type="text" id="password" onChange={handleChange} />
-      <button onClick={handleLogin}>Login</button>
+    <div className="container d-flex flex-column gap-3 my-5">
+      <h1 className="text-center "> Login </h1>
+      <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input
+          className="form-control"
+          type="text"
+          id="email"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="password">Password</label>
+        <input
+          className="form-control"
+          type="text"
+          id="password"
+          onChange={handleChange}
+        />
+      </div>
+      <button className="btn btn-success" onClick={handleLogin}>
+        Login
+      </button>
       <p>
         Don't have an account ?
         <span>

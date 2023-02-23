@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserService from "../services/User";
 import BetService from "../services/Bet";
-import { scoreComparator } from "../utils/MatchComparator";
+import { ScoreComparator } from "../utils/MatchComparator";
 import capitalizeFirstLetter from "../utils/StringUtils";
 
 const TableScore = () => {
@@ -36,19 +36,39 @@ const TableScore = () => {
   }, []);
 
   return (
-    <div>
-      <h1>TableScore</h1>
-      {users?.sort(scoreComparator).map((user, i) => {
-        return (
-          <p key={i}>
-            {capitalizeFirstLetter(user?.firstName) +
-              " " +
-              capitalizeFirstLetter(user?.lastName) +
-              " Total Score: " +
-              user?.score}
-          </p>
-        );
-      })}
+    <div className="mx-3 py-3">
+      <br />
+      <h1 className="text-center"> Table Score</h1>
+      <br />
+      <br />
+      {users ? (
+        <div className="">
+          <table className="table">
+            <thead className="thead-dark">
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users?.sort(ScoreComparator).map((user, i) => {
+                return (
+                  <tr>
+                    <th scope="row">{i + 1}</th>
+                    <td>{capitalizeFirstLetter(user?.firstName)}</td>
+                    <td>{capitalizeFirstLetter(user?.lastName)}</td>
+                    <td>{user?.score}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="text-center text-info">Loading Table...</p>
+      )}
     </div>
   );
 };

@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import Bet from "../components/Bet";
 import BetService from "../services/Bet";
 import MatchService from "../services/Match";
-import { DateComparator } from "../utils/MatchComparator";
+import {
+  DateComparator,
+  GetTodayBets,
+  GetAllHistoryBets,
+} from "../utils/MatchComparator";
 import Swal from "sweetalert2";
 import BetForm from "../components/BetForm";
 
@@ -33,26 +37,40 @@ const Bets = () => {
   }, []);
 
   return (
-    <div>
-      <h1>My Bets</h1>
-      {bets?.forEach((item) => (totalScore += item?.score))}
-      {bets?.map((bet, i) => (
-        <Bet
-          key={i}
-          homeTeamName={bet?.homeTeamName}
-          awayTeamName={bet?.awayTeamName}
-          homeTeamScore={bet?.homeTeamScore}
-          awayTeamScore={bet?.awayTeamScore}
-          score={bet?.score}
-        />
-      ))}
-      <p>Total Score - {totalScore}</p>
-      <h3>Up Coming Games</h3>
-      {futureBets?.map((bet, i) => (
-        <div key={i} className="match-bet">
-          <BetForm bet={bet} userId={user._id} matchId={bet._id} />
+    <div className="container-fluid ">
+      <h3 className="text-center py-3">My Bets</h3>
+      {bets ? (
+        <div className="row d-flex gap-2">
+          {bets?.forEach((item) => (totalScore += item?.score))}
+          {bets?.map((bet, i) => (
+            <Bet
+              key={i}
+              homeTeamName={bet?.homeTeamName}
+              awayTeamName={bet?.awayTeamName}
+              homeTeamScore={bet?.homeTeamScore}
+              awayTeamScore={bet?.awayTeamScore}
+              score={bet?.score}
+            />
+          ))}
         </div>
-      ))}
+      ) : (
+        <p className="text-center text-info">Loading Previous Bets...</p>
+      )}
+      <br />
+      <br />
+      <h3 className="text-center text-success ">Total Score - {totalScore}</h3>
+      <br />
+      <br />
+      <h3 className="text-center py-3">Up Coming Games</h3>
+      {futureBets ? (
+        <div className="row d-flex gap-2">
+          {futureBets?.map((bet, i) => (
+            <BetForm key={i} bet={bet} userId={user._id} matchId={bet._id} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-info">Loading Up Coming Bets...</p>
+      )}
     </div>
   );
 };

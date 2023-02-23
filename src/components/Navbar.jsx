@@ -17,23 +17,28 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <h1>Hazut Bet</h1>
-      <div>
-        <ul>
-          <li>
-            <Link to={"/home"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/my-bets"}>My Bets</Link>
-          </li>
-          <li>
-            <Link to={"/score-table"}>Score Table</Link>
-          </li>
-        </ul>
-        <button onClick={handleClick}>Logout</button>
+    <nav className="navbar navbar-light bg-light ">
+      <div className="container-fluid d-flex justify-content-start col">
+        <Link className="navbar-brand d-none d-lg-flex" href="/">
+          Hazut Bet
+        </Link>
+
+        <div className="navbar-nav d-flex flex-row gap-3  ">
+          <Link className="nav-item nav-link " to={"/home"}>
+            Home
+          </Link>
+          <Link className="nav-item nav-link " to={"/my-bets"}>
+            My Bets
+          </Link>
+          <Link className="nav-item nav-link " to={"/score-table"}>
+            Score Table
+          </Link>
+        </div>
       </div>
-    </div>
+      <button className="btn btn-danger fixed-right m-3 " onClick={handleClick}>
+        Logout
+      </button>
+    </nav>
   );
 };
 
