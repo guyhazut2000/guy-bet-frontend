@@ -55,7 +55,7 @@ const TableScore = () => {
             <tbody>
               {users?.sort(ScoreComparator).map((user, i) => {
                 return (
-                  <tr>
+                  <tr key={i}>
                     <th scope="row">{i + 1}</th>
                     <td>{capitalizeFirstLetter(user?.firstName)}</td>
                     <td>{capitalizeFirstLetter(user?.lastName)}</td>

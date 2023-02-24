@@ -19,6 +19,7 @@ import {
   ManchesterCity,
   Porto,
 } from "../images/index";
+import Swal from "sweetalert2";
 
 const BetForm = ({ userId, matchId, bet }) => {
   const [newBet, setNewBet] = useState({ userId, matchId });
@@ -36,7 +37,10 @@ const BetForm = ({ userId, matchId, bet }) => {
         awayTeamName: bet.awayTeamName,
       });
       if (res.data) {
-        window.location.reload();
+        Swal.fire("Success", "Bet created successfully!", "success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         console.log("bet failed");
       }
@@ -99,18 +103,6 @@ const BetForm = ({ userId, matchId, bet }) => {
   }, []);
 
   return (
-    // <div>
-    //   <p>
-    //     {bet?.homeTeamName} vs {bet?.awayTeamName}
-    //   </p>
-    //   <label htmlFor="homeTeam">Home </label>
-    //   <input type="number" id="homeTeamScore" onChange={handleChange} />
-    //   <label htmlFor="awayTeam">Away </label>
-    //   <input type="number" id="awayTeamScore" onChange={handleChange} />
-    //   <button onClick={handleClick}>Submit</button>
-    //   <br />
-    // </div>
-
     <div className="card p-2 m-auto m-sm-2 " style={{ width: "18rem" }}>
       <div className="row m-2 p-2 align-items-center">
         <img
@@ -144,11 +136,6 @@ const BetForm = ({ userId, matchId, bet }) => {
             <b>Prediction</b>
           </p>
         </div>
-        {/* <label htmlFor="homeTeam">Home </label>
-        <input type="number" id="homeTeamScore" onChange={handleChange} />
-        <label htmlFor="awayTeam">Away </label>
-        <input type="number" id="awayTeamScore" onChange={handleChange} />
-        <button onClick={handleClick}>Submit</button> */}
         <div className="input-group input-group-sm mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-sm">
@@ -160,6 +147,8 @@ const BetForm = ({ userId, matchId, bet }) => {
             className="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm"
+            id="homeTeamScore"
+            onChange={handleChange}
           />
         </div>
         <div className="input-group input-group-sm mb-3">
@@ -173,6 +162,8 @@ const BetForm = ({ userId, matchId, bet }) => {
             className="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm"
+            id="awayTeamScore"
+            onChange={handleChange}
           />
         </div>
         <button className="btn btn-success w-100 mx-auto" onClick={handleClick}>

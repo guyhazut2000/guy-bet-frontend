@@ -14,6 +14,7 @@ import Liverpool from "./liverpool.png";
 import Napoli from "./napoli.png";
 import Porto from "./porto.png";
 import ManchesterCity from "./manchester-city.png";
+import Roi from "./roi-boskila.png";
 
 export {
   Milan,
@@ -32,4 +33,5 @@ export {
   Napoli,
   ManchesterCity,
   Porto,
+  Roi,
 };
