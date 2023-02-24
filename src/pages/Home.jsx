@@ -4,7 +4,11 @@ import { Roi } from "../images/index";
 const Home = () => {
   return (
     <div>
-      <img src={Roi} className="card-img-top img-responsive col" alt="" />
+      <img
+        src={Roi}
+        className="w-75 h-50 d-flex  m-auto card-img-top img-responsive"
+        alt=""
+      />
     </div>
   );
 };
