@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserService from "../services/User";
 import BetService from "../services/Bet";
+import BonusService from "../services/Bonus";
 import { ScoreComparator } from "../utils/MatchComparator";
 import capitalizeFirstLetter from "../utils/StringUtils";
 
@@ -8,14 +9,17 @@ const TableScore = () => {
   const [users, setUsers] = useState();
 
   const getUserScore = async (id) => {
-    const res = await BetService.getAllById(id);
     let totalScore = 0;
+    const res = await BetService.getAllById(id);
     if (res.data !== null) {
       const userBets = res.data.bets;
       userBets.forEach((bet) => (totalScore += bet.score));
-      return totalScore;
     }
-    return 0;
+    const bonus = await BonusService.getAllByUserId({ userId: id });
+    if (bonus.data !== null) {
+      bonus.data.bonuses.forEach((bonus) => (totalScore += bonus.score));
+    }
+    return totalScore;
   };
 
   const getAllUsersWithScore = async () => {
