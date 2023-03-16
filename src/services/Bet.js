@@ -1,8 +1,8 @@
 import http from "../utils/http-common";
 
 class BetService {
-  getAllById(id) {
-    return http.post("/bets/all", { id });
+  getAllByUserId(userId) {
+    return http.post("/bets/all", { userId });
   }
   getAll() {
     return http.get("/bets/all");
@@ -10,6 +10,9 @@ class BetService {
 
   create(bet) {
     return http.put("/bets/create", bet);
+  }
+  update(bet) {
+    return http.post("/bets/update", bet);
   }
 }
 

@@ -15,8 +15,12 @@ import Napoli from "./napoli.png";
 import Porto from "./porto.png";
 import ManchesterCity from "./manchester-city.png";
 import Roi from "./roi-boskila.png";
+import Haaland from "./haaland.png";
+import Mbappe from "./mbappe.png";
 
 export {
+  Haaland,
+  Mbappe,
   Milan,
   Bayern,
   RealMadrid,

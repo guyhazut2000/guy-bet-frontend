@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserService from "../services/User";
+import UserService from "../../services/User";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {

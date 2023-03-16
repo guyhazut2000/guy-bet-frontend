@@ -15,7 +15,7 @@ class UserService {
     return http.post("/users/login", { email, password });
   }
   register(email, password, firstName, lastName) {
-    return http.put("/users/register", {
+    return http.put("/users/create", {
       email,
       password,
       firstName,

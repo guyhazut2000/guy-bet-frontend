@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BetService from "../services/Bet";
-import MatchService from "../services/Match";
+import BetService from "../../services/Bet";
+import MatchService from "../../services/Match";
 import {
   Milan,
   Bayern,
@@ -18,7 +18,7 @@ import {
   Napoli,
   ManchesterCity,
   Porto,
-} from "../images/index";
+} from "../../images/index";
 import Swal from "sweetalert2";
 
 const BetForm = ({ userId, matchId, bet }) => {

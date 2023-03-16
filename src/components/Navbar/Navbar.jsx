@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logoutStart, logoutSuccess } from "../redux/userRedux";
+import { logoutStart, logoutSuccess } from "../../redux/userRedux";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light ">
+    <nav className="navbar navbar-light bg-light">
       <div className="container-fluid d-flex justify-content-start col">
         <Link className="navbar-brand d-none d-lg-flex" href="/">
           Hazut Bet
